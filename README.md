@@ -27,14 +27,8 @@
 * webpack loader & plugin
 
     ``` javascript
-    npm i css-loader -D
-    npm i mini-css-extract-plugin html-webpack-plugin -D
-    ```
-
-* lodash
-
-    ``` javascript
-    npm i lodash
+    npm i -D css-loader style-loader file-loader url-loader
+    npm i -D mini-css-extract-plugin html-webpack-plugin
     ```
 
 * eslint & prettier
@@ -42,6 +36,12 @@
     ``` javascript
     npm i -D eslint-config-airbnb-base eslint-plugin-import
     npm i -D prettier eslint-config-prettier eslint-plugin-prettier
+    ```
+
+* lodash
+
+    ``` javascript
+    npm i lodash
     ```
 
 #### 4-2. back-end

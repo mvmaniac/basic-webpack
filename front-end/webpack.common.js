@@ -1,44 +1,41 @@
 const path = require('path');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'none', // production, development, none
-  entry: './src/index.js',
+  entry: {
+    bundle: './src/app.js'
+  },
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
         exclude: /node_modules/,
-        // 아래쪽에서 위쪽으로 사용됨
-        // css-loader -> MiniCssExtractPlugin.loader
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {}
-          },
-          {
-            loader: 'css-loader',
-            options: {}
+            loader: 'url-loader',
+            options: {
+              publicPath: '',
+              name: '[name].[ext]?[hash]',
+              // file-loader로 할 경우에는 limit 속성은 없는 듯?
+              // 10KB 파일 미만의 파일은 url-loader에서 base64 인코딩 문자열로 처리
+              // 그 이상은 file-loader가 처리
+              limit: 10000 // 10KB
+            }
           }
         ]
       }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: 'index.html'
-    })
+    // 환경변수를 설정 할 수 있음
+    new webpack.DefinePlugin({}),
+    new CleanWebpackPlugin()
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  devServer: {
-    port: 9000
+    filename: '[name].js'
   }
 };
