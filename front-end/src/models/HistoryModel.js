@@ -1,26 +1,28 @@
-export default {
-  data: [
-    {keyword: '검색기록2', date: '12.03'},
-    {keyword: '검색기록1', date: '12.02'},
-    {keyword: '검색기록0', date: '12.01'}
-  ],
+import request from './request';
 
-  list() {
-    return Promise.resolve(this.data);
+export default {
+  data: [],
+
+  async list() {
+    if (this.data.length) return this.data;
+
+    this.data = await request('get', '/api/history');
+    return this.data;
   },
 
   add(keyword = '') {
-    // eslint-disable-next-line no-param-reassign
-    keyword = keyword.trim();
-    if (!keyword) return;
-    if (this.data.some((item) => item.keyword === keyword)) {
+    const trimKeyword = keyword.trim();
+
+    if (!trimKeyword) return;
+
+    if (this.data.some((item) => item.keyword === trimKeyword)) {
       this.remove(keyword);
     }
 
     const date = '12.31';
     this.data = [
       {
-        keyword,
+        trimKeyword,
         date
       },
       ...this.data

@@ -8,6 +8,7 @@
 ### 2. 차이점
 
 * EditorConfig 설정 추가
+* webpack-merge 사용
 
 ### 3. TODO
 
@@ -27,8 +28,59 @@
 * webpack loader & plugin
 
     ``` javascript
-    npm i -D css-loader style-loader file-loader url-loader
+    npm i -D css-loader style-loader
+    npm i -D sass-loader node-sass
+    npm i -D url-loader file-loader
     npm i -D mini-css-extract-plugin html-webpack-plugin
+    ```
+
+* babel
+
+    ``` javascript
+    npm i @babel/runtime-corejs3
+    npm i -D @babel/core
+    npm i -D @babel/preset-env @babel/plugin-transform-runtime
+    npm i -D babel-eslint
+    ```
+
+* eslint & prettier
+
+    ``` javascript
+    npm i -D eslint
+    npm i -D eslint-config-airbnb-base eslint-plugin-import eslint-import-resolver-alias
+    npm i -D prettier eslint-config-prettier eslint-plugin-prettier
+    ```
+
+* husky & lint-staged
+  
+    ``` javascript
+    npm i -D husky lint-staged
+    ```
+
+* axios
+
+    ``` javascript
+    npm i axios
+    ```
+
+* connect-api-mocker
+
+    ``` javascript
+    npm i -D connect-api-mocker
+    ```
+
+* etc
+
+    ``` javascript
+    npm i custom-event-polyfill
+    ```
+
+#### 4-2. back-end
+
+* express & morgan
+
+    ``` javascript
+    npm i express morgan
     ```
 
 * eslint & prettier
@@ -38,16 +90,6 @@
     npm i -D prettier eslint-config-prettier eslint-plugin-prettier
     ```
 
-* lodash
-
-    ``` javascript
-    npm i lodash
-    ```
-
-#### 4-2. back-end
-
-*
-
 ### 5. etc
 
-*
+* IE에서 [CustomEvent](https://developer.mozilla.org/ko/docs/Web/API/CustomEvent/CustomEvent "CustomEvent")를 지원하지 않아서 [custom-event-polyfill](https://www.npmjs.com/package/custom-event-polyfill "custom-event-polyfill") 를 사용함  

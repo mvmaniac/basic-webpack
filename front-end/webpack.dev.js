@@ -4,6 +4,8 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const apiMocker = require('connect-api-mocker');
+
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -37,6 +39,16 @@ module.exports = merge(common, {
     })
   ],
   devServer: {
-    port: 9000
+    port: 9000,
+
+    // mock api 서버로 사용 시
+    // before: (app, server, compiler) => {
+    //   app.use(apiMocker('/api', './src/mocks/'));
+    // },
+
+    // 실제 api 서버로 사용 시 (cors 문제가 될 시...)
+    proxy: {
+      '/api': 'http://localhost:8081'
+    }
   }
 });

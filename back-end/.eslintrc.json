@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended"
+  ],
+  // 자동으로 생성 시 추가되는 설정
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "import",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-unused-vars": ["warn"],
+    "no-underscore-dangle": ["warn"],
+    "import/no-extraneous-dependencies": ["off"]
+  }
+}
