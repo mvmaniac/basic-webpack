@@ -1,12 +1,12 @@
-import FormView from '../views/FormView';
-import ResultView from '../views/ResultView';
-import TabView from '../views/TabView';
-import KeywordView from '../views/KeywordView';
-import HistoryView from '../views/HistoryView';
+import FormView from '@/views/FormView';
+import ResultView from '@/views/ResultView';
+import TabView from '@/views/TabView';
+import KeywordView from '@/views/KeywordView';
+import HistoryView from '@/views/HistoryView';
 
-import SearchModel from '../models/SearchModel';
-import KeywordModel from '../models/KeywordModel';
-import HistoryModel from '../models/HistoryModel';
+import SearchModel from '@/models/SearchModel';
+import KeywordModel from '@/models/KeywordModel';
+import HistoryModel from '@/models/HistoryModel';
 
 export default class MainController {
   constructor() {

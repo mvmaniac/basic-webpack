@@ -8,7 +8,12 @@
     "airbnb-base",
     "plugin:prettier/recommended"
   ],
-  //"parser": "babel-eslint",
+  // 자동으로 생성 시 추가되는 설정
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
@@ -17,6 +22,16 @@
     "import",
     "prettier"
   ],
+  "settings": {
+    "import/resolver" : {
+      "alias" : {
+        "map": [
+          ["@","./src"]
+        ], 
+        "extensions": [".js"]
+      } 
+    }
+  },
   "rules": {
     "prettier/prettier": ["error"],
     "no-unused-vars": ["warn"],

@@ -1,4 +1,5 @@
 import View from './View';
+import './TabView.scss';
 
 export default class TabView extends View {
   constructor(el) {

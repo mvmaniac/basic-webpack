@@ -1,6 +1,8 @@
-import './main.css';
+// import './main.css';
+import '@/app.scss';
 
-import MainController from './controllers/MainController';
+import polyfill from 'custom-event-polyfill';
+import MainController from '@/controllers/MainController';
 
 document.addEventListener('DOMContentLoaded', () => {
   const main = new MainController();

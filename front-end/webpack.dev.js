@@ -12,11 +12,11 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(scss|css)$/,
         exclude: /node_modules/,
         // 오른쪽에서 왼쪽으로 사용됨
         // css-loader -> MiniCssExtractPlugin.loader
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },

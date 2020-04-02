@@ -1,4 +1,5 @@
 import View from './View';
+import './KeywordView.scss';
 
 export default class KeywordView extends View {
   constructor(el) {

@@ -5,6 +5,11 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'none', // production, development, none
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src/')
+    }
+  },
   entry: {
     bundle: './src/app.js'
   },
@@ -24,6 +29,16 @@ module.exports = {
               // 그 이상은 file-loader가 처리
               limit: 10000 // 10KB
             }
+          }
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {}
           }
         ]
       }
