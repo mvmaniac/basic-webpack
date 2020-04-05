@@ -32,6 +32,7 @@
     npm i -D sass-loader node-sass
     npm i -D url-loader file-loader
     npm i -D mini-css-extract-plugin html-webpack-plugin
+    npm i -Doptimize-css-assets-webpack-plugin terser-webpack-plugin copy-webpack-plugin
     ```
 
 * babel
@@ -77,10 +78,10 @@
 
 #### 4-2. back-end
 
-* express & morgan
+* express & morgan & cors
 
     ``` javascript
-    npm i express morgan
+    npm i express morgan cors
     ```
 
 * eslint & prettier

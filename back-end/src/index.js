@@ -2,12 +2,23 @@ const path = require('path');
 
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const app = express();
 
 app.use(morgan('dev'));
 
-// app.use(express.static(path.join(__dirname, "../dist")));
+// front-end를 로컬 라이브서버로 사용하는 경우
+app.use(
+  cors({
+    origin: true,
+    credentials: true
+  })
+);
+
+// front-end 폴더에 있는 build 결과물을 사용함
+// front-end와 back-end 서버 두개의 역할을 함
+app.use(express.static(path.join(__dirname, '../../front-end/dist')));
 
 const port = process.env.PORT || 8081;
 const keywords = [
@@ -42,7 +53,6 @@ let history = [
 ];
 
 app.get('/api/keywords', (req, res) => {
-  // res.header("Access-Control-Allow-Origin", "*");
   res.json(keywords);
 });
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>검색<%=env%></title>
+    <title>검색<%=MODE%></title>
   </head>
   <body>
     <!-- 주석은 지워지는가? -->
@@ -26,5 +26,8 @@
         </div>
       </div>
     </div>
+
+    <!-- 외부 라이브러리를 따로 빼서 사용할 경우 -->
+    <script src="<%=AXIOS_URL%>"></script>
   </body>
 </html>

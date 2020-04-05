@@ -23,6 +23,12 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+    // 전역변수를 설정 할 수 있음
+    // 환경변수도 설정 할 수 있는데 EnvironmentPlugin 사용하는게 나을 듯(?)
+    new webpack.DefinePlugin({
+      API_URL: JSON.stringify('')
+    }),
+
     new webpack.BannerPlugin({
       banner: `
         Build Date: ${new Date().toLocaleDateString()}
@@ -34,7 +40,8 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       templateParameters: {
-        env: '(개발용)'
+        MODE: '(개발용)',
+        AXIOS_URL: ''
       }
     })
   ],
@@ -46,9 +53,10 @@ module.exports = merge(common, {
     //   app.use(apiMocker('/api', './src/mocks/'));
     // },
 
-    // 실제 api 서버로 사용 시 (cors 문제가 될 시...)
+    // 실제 api 서버로 사용 시 (서버에서 cors 설정이 안되어 있는 경우...)
     proxy: {
       '/api': 'http://localhost:8081'
-    }
+    },
+    hot: true
   }
 });

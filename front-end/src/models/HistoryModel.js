@@ -6,7 +6,7 @@ export default {
   async list() {
     if (this.data.length) return this.data;
 
-    this.data = await request('get', '/api/history');
+    this.data = await request('get', `${API_URL}/api/history`);
     return this.data;
   },
 

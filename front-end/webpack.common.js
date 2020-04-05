@@ -1,6 +1,4 @@
 const path = require('path');
-
-const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
@@ -44,11 +42,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    // 환경변수를 설정 할 수 있음
-    new webpack.DefinePlugin({}),
-    new CleanWebpackPlugin()
-  ],
+  plugins: [new CleanWebpackPlugin()],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
