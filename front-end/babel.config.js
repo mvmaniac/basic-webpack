@@ -8,20 +8,26 @@ module.exports = {
         targets: {
           // https://github.com/browserslist/browserslist 참고
           browsers: ['defaults']
-        }
+        },
+        // Promise 에 대한 polyfill 설정
+        // @babel/plugin-transform-runtime (https://babeljs.io/docs/en/babel-plugin-transform-runtime)
+        // 위의 플러그인을 사용하는 방법도 있는데 인스턴스 메소드를 사용못하는 것 같음
+        // core-js 를 설치하고 @babel/preset-env 로 설정하는 방법으로 함
+        useBuiltIns: 'usage',
+        corejs: {version: 3, proposals: true}
       }
     ]
   ],
   plugins: [
-    [
-      // Promise 에 대한 polyfill 설정
-      '@babel/plugin-transform-runtime',
-      {
-        corejs: {
-          version: 3,
-          proposals: true
-        }
-      }
-    ]
+    // @babel/preset-env 로 설정하는 방식으로 변경
+    // [
+    //   '@babel/plugin-transform-runtime',
+    //   {
+    //     corejs: {
+    //       version: 3,
+    //       proposals: true
+    //     }
+    //   }
+    // ]
   ]
 };
