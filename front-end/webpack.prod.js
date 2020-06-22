@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
@@ -55,12 +55,14 @@ module.exports = merge(common, {
       }
     }),
     // 외부 라이브러리를 따로 빼서 사용할 경우
-    new CopyWebpackPlugin([
-      {
-        from: './node_modules/axios/dist/axios.min.js',
-        to: './vendor/axios.min.js'
-      }
-    ])
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: './node_modules/axios/dist/axios.min.js',
+          to: './vendor/axios.min.js'
+        }
+      ]
+    })
   ],
   optimization: {
     minimizer: [

@@ -1,6 +1,6 @@
 const childProcess = require('child_process');
 
-const merge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
