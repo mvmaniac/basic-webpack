@@ -31,7 +31,6 @@
     npm i -D babel-loader
     npm i -D css-loader style-loader
     npm i -D sass-loader node-sass
-    npm i -D url-loader file-loader
     npm i -D clean-webpack-plugin mini-css-extract-plugin html-webpack-plugin
     npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin
     npm i -D copy-webpack-plugin
