@@ -46,6 +46,7 @@ module.exports = merge(common, {
     })
   ],
   devServer: {
+    publicPath: '/', // 명시적으로 줌
     port: 9000,
 
     // mock api 서버로 사용 시
