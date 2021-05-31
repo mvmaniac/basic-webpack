@@ -43,7 +43,10 @@ module.exports = {
   plugins: [new CleanWebpackPlugin()],
   output: {
     publicPath: '/',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js'
-  }
+  },
+  // target 기본값인 web에 es5를 추가하여 IE 지원
+  // IE를 지원하지 않을 경우 안해도 될듯?
+  target: ['web', 'es5']
 };
