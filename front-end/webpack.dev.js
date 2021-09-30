@@ -46,9 +46,6 @@ module.exports = merge(common, {
     })
   ],
   devServer: {
-    publicPath: '/', // 명시적으로 줌
-    port: 9000,
-
     // mock api 서버로 사용 시
     // before: (app, server, compiler) => {
     //   app.use(apiMocker('/api', './src/mocks/'));
@@ -58,6 +55,10 @@ module.exports = merge(common, {
     proxy: {
       '/api': 'http://localhost:8081'
     },
-    hot: true
+    hot: true,
+    port: 9000,
+    devMiddleware: {
+      publicPath: '/' // 명시적으로 줌
+    }
   }
 });
