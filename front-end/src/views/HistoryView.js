@@ -5,8 +5,6 @@ export default class HistoryView extends KeywordView {
   constructor(el) {
     super(el);
     this._messages.NO_KEYWORDS = '검색 이력이 없습니다';
-
-    return this;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -32,6 +30,6 @@ export default class HistoryView extends KeywordView {
   }
 
   onRemove(keyword) {
-    this.emit('@remove', {keyword});
+    this.emit('@remove', { keyword });
   }
 }

@@ -3,7 +3,6 @@ export default class View {
     if (!el) throw el;
 
     this.el = el;
-    return this;
   }
 
   on(event, handler) {

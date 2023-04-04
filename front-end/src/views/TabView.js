@@ -28,7 +28,7 @@ export default class TabView extends View {
 
   onClick(tabName) {
     this.setActiveTab(tabName);
-    this.emit('@change', {tabName});
+    this.emit('@change', { tabName });
   }
 
   setActiveTab(tabName) {

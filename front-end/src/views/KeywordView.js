@@ -8,8 +8,6 @@ export default class KeywordView extends View {
     this._messages = {
       NO_KEYWORDS: '추천 검색어가 없습니다'
     };
-
-    return this;
   }
 
   mount(data = []) {
@@ -39,7 +37,7 @@ export default class KeywordView extends View {
   }
 
   _onClickKeyword(e) {
-    const {keyword} = e.currentTarget.dataset;
-    this.emit('@click', {keyword});
+    const { keyword } = e.currentTarget.dataset;
+    this.emit('@click', { keyword });
   }
 }

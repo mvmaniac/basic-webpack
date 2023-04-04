@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const {merge} = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -20,7 +20,7 @@ module.exports = merge(common, {
         // 오른쪽에서 왼쪽으로 사용됨
         // css-loader -> MiniCssExtractPlugin.loader
         use: [
-          {loader: MiniCssExtractPlugin.loader},
+          { loader: MiniCssExtractPlugin.loader },
           'css-loader',
           'sass-loader'
         ]

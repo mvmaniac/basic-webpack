@@ -8,7 +8,6 @@ export default class FormView extends View {
     this._resetEl = el.querySelector('[type=reset]');
     this.showResetBtn(false);
     this.bindEvents();
-    return this;
   }
 
   showResetBtn(show = true) {
@@ -26,7 +25,7 @@ export default class FormView extends View {
     this.showResetBtn(this._inputEl.value.length);
     if (!this._inputEl.value.length) this.emit('@reset');
     if (e.keyCode !== enter) return;
-    this.emit('@submit', {input: this._inputEl.value});
+    this.emit('@submit', { input: this._inputEl.value });
   }
 
   onClickReset() {

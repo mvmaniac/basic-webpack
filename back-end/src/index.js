@@ -22,10 +22,10 @@ app.use(express.static(path.join(__dirname, '../../front-end/dist')));
 
 const port = process.env.PORT || 8081;
 const keywords = [
-  {keyword: '이탈리아'},
-  {keyword: '세프의요리'},
-  {keyword: '제철'},
-  {keyword: '홈파티'}
+  { keyword: '이탈리아' },
+  { keyword: '세프의요리' },
+  { keyword: '제철' },
+  { keyword: '홈파티' }
 ];
 const search = [
   {
@@ -47,9 +47,9 @@ const search = [
   }
 ];
 let history = [
-  {keyword: '검색기록2', date: '12.03'},
-  {keyword: '검색기록1', date: '12.02'},
-  {keyword: '검색기록0', date: '12.01'}
+  { keyword: '검색기록2', date: '12.03' },
+  { keyword: '검색기록1', date: '12.02' },
+  { keyword: '검색기록0', date: '12.01' }
 ];
 
 app.get('/api/keywords', (req, res) => {
@@ -67,7 +67,7 @@ app.post('/api/history', (req, res) => {
   history.filter((item) => item.keyword !== keyword);
 
   history = [
-    {keyword, date: '12.31'},
+    { keyword, date: '12.31' },
     ...history.filter((item) => item.keyword !== keyword)
   ];
 
