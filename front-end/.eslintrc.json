@@ -2,7 +2,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "es2021": true
+    "es2022": true
   },
   "extends": ["airbnb-base", "prettier"],
   // 자동으로 생성 시 추가되는 설정
@@ -14,7 +14,7 @@
     "API_URL": "readonly"
   },
   "parserOptions": {
-    "ecmaVersion": 2021,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": ["import"],

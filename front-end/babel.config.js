@@ -10,7 +10,7 @@ const presets = [
       // 위의 플러그인을 사용하는 방법도 있는데 인스턴스 메소드를 사용못하는 것 같음
       // core-js 를 설치하고 @babel/preset-env 로 설정하는 방법으로 함 (Promise 등이 전역 스코프로 설정됨)
       useBuiltIns: 'usage',
-      corejs: {version: '3.18', proposals: true}
+      corejs: { version: 3, proposals: true }
     }
   ]
 ];
@@ -25,4 +25,4 @@ const plugins = [
   // ]
 ];
 
-module.exports = {presets, plugins};
+module.exports = { presets, plugins };
