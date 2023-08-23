@@ -23,13 +23,13 @@ export default {
     this.data = [
       {
         trimKeyword,
-        date
+        date,
       },
-      ...this.data
+      ...this.data,
     ];
   },
 
   remove(keyword) {
     this.data = this.data.filter((item) => item.keyword !== keyword);
-  }
+  },
 };

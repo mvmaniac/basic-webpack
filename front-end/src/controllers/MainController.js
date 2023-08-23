@@ -21,11 +21,11 @@ export default class MainController {
       .on('@reset', () => this.renderView());
 
     this.tabView = new TabView(tabViewEl).on('@change', (e) =>
-      this.onChangeTab(e.detail.tabName)
+      this.onChangeTab(e.detail.tabName),
     );
 
     this.keywordView = new KeywordView(keywordViewEl).on('@click', (e) =>
-      this.search(e.detail.keyword)
+      this.search(e.detail.keyword),
     );
 
     this.historyView = new HistoryView(historyViewEl)

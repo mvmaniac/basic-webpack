@@ -22,65 +22,65 @@ module.exports = merge(common, {
         use: [
           { loader: MiniCssExtractPlugin.loader },
           'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
+          'sass-loader',
+        ],
+      },
+    ],
   },
   plugins: [
     // 전역변수를 설정 할 수 있음
     // 환경변수도 설정 할 수 있는데 EnvironmentPlugin 사용하는게 나을 듯(?)
     new webpack.DefinePlugin({
-      API_URL: JSON.stringify('http://localhost:8081')
+      API_URL: JSON.stringify('http://localhost:8081'),
     }),
 
     new webpack.BannerPlugin({
       banner: `
         Build Date: ${new Date().toLocaleDateString()}
-      `
+      `,
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].css',
     }),
 
     new HtmlWebpackPlugin({
       template: './src/index.html',
       templateParameters: {
         MODE: '',
-        AXIOS_URL: './vendor/axios.min.js'
+        AXIOS_URL: './vendor/axios.min.js',
       },
       minify: {
         collapseWhitespace: true,
-        removeComments: true
-      }
+        removeComments: true,
+      },
     }),
     // 외부 라이브러리를 따로 빼서 사용할 경우
     new CopyWebpackPlugin({
       patterns: [
         {
           from: './node_modules/axios/dist/axios.min.js',
-          to: './vendor/axios.min.js'
-        }
-      ]
-    })
+          to: './vendor/axios.min.js',
+        },
+      ],
+    }),
   ],
   optimization: {
     minimizer: [
       new TerserWebpackPlugin({
         terserOptions: {
           compress: {
-            drop_console: true // 콘솔 로그를 제거한다.
-          }
-        }
+            drop_console: true, // 콘솔 로그를 제거한다.
+          },
+        },
       }),
-      new CssMinimizerPlugin()
-    ]
+      new CssMinimizerPlugin(),
+    ],
     // splitChunks: {
     //   chunks: 'all'
     // }
   },
   externals: {
-    axios: 'axios'
-  }
+    axios: 'axios',
+  },
 });

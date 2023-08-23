@@ -6,7 +6,7 @@ export default class KeywordView extends View {
     super(el);
 
     this._messages = {
-      NO_KEYWORDS: '추천 검색어가 없습니다'
+      NO_KEYWORDS: '추천 검색어가 없습니다',
     };
   }
 
